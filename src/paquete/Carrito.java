@@ -1,13 +1,22 @@
 package paquete;
-public class Carrito extends Juguete{
+public class Carrito implements Juguete {
+
+    @Override
+    public String toString() {
+        return "Carrito - Color: " + getColor() +
+                ", Marca: " + getMarca() +
+                ", Número de puertas: " + getNumeroPuertas();
+    }
 
     //Variables
-    String color, marca;
+    private String color;
+    private String marca;
     int numeroPuertas;
+    int id;
 
     //Constructor del objeto Carrito con atributos propios y de la superclase Juguete
-    public Carrito(String color, String marca, int numeroPuertas) {
-        super(idJuguete);
+    public Carrito(int id, String color, String marca, int numeroPuertas) {
+        this.id = id;
         this.color = color;
         this.marca = marca;
         this.numeroPuertas = numeroPuertas;
@@ -36,5 +45,10 @@ public class Carrito extends Juguete{
 
     public void setNumeroPuertas(int numeroPuertas) {
         this.numeroPuertas = numeroPuertas;
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
     }
 }

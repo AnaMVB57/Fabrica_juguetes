@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+    Los nombres de las variables y métodos deberían ser diciente
+ */
+
 public class Main {
 
 //    Creación:
@@ -20,6 +24,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<Juguete> juguetes = new ArrayList<Juguete>();
+
 //        Peluche Lotso = new Peluche("Felpa", "Algodón", "fucsia");
 //        Carrito McQueen = new Carrito("Azul", "MarcaX", 4);
 //        Carrito MattE = new Carrito("café", "Jeep", 4);
@@ -46,40 +51,34 @@ public class Main {
 
                 case 1:
                     System.out.println("Material exterior del peluche: ");
-                    String r1 = leer.next();
+                    String materialExterior = leer.next();
                     System.out.println("Relleno del peluche: ");
-                    String r2 = leer.next();
+                    String relleno = leer.next();
                     System.out.println("Color del peluche: ");
-                    String r3 = leer.next();
-                    juguetes.add(new Peluche(r1, r2, r3));
+                    String colorPeluche = leer.next();
+                    juguetes.add(new Peluche(juguetes.size() + 1, materialExterior, relleno, colorPeluche));
                     System.out.println("- Peluche añadido a la lista -");
                     break;
 
                 case 2:
                     System.out.println("Color: ");
-                    String r4 = leer.next();
+                    String colorCarrito = leer.next();
                     System.out.println("Marca: ");
-                    String r5 = leer.next();
+                    String marca = leer.next();
                     System.out.println("Número de puertas: ");
-                    int r6 = leer.nextInt();
-                    juguetes.add(new Carrito(r4, r5, r6));
+                    int numPuertas = leer.nextInt();
+                    juguetes.add(new Carrito(juguetes.size() + 1, colorCarrito, marca, numPuertas));
                     System.out.println("- Carrito añadido a la lista -");
                     break;
 
                 case 3:
                     //Imprime el registro de juguetes
-
                     imprimirJuguetes(juguetes);
-
-
                     break;
-
                 case 4:
                     //Mensaje de despedida
                     System.out.println("Muchas gracias, vuelva pronto.");
-
                     break;
-
             }
         } while (opc != 4);
 
@@ -88,26 +87,7 @@ public class Main {
     //Función que imprime todos los juguetes de la lista dependiendo del tipo de juguete
     public static void imprimirJuguetes(List<Juguete> lista) {
         for (Juguete juguete : lista) {
-            if (juguete instanceof Peluche) {
-                imprimirPeluche((Peluche) juguete);
-            } else {
-                imprimirCarrito((Carrito) juguete);
-            }
+            System.out.println(juguete.toString());
         }
     }
-
-    // Función para imprimir un Peluche específico
-    public static void imprimirPeluche(Peluche pelu) {
-        System.out.println("Peluche - Material: " + pelu.getMaterialExterior() +
-                ", Relleno: " + pelu.getRelleno() +
-                ", Color: " + pelu.getColor());
-    }
-
-    // Función para imprimir un Carrito específico
-    public static void imprimirCarrito(Carrito carro) {
-        System.out.println("Carrito - Color: " + carro.getColor() +
-                ", Marca: " + carro.getMarca() +
-                ", Número de puertas: " + carro.getNumeroPuertas());
-    }
-
 }
