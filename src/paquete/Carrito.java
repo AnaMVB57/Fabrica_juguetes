@@ -61,12 +61,7 @@ public class Carrito implements Juguete, Cloneable {
     // En la clase Carrito
     @Override
     public Carrito clone() throws CloneNotSupportedException {
-        Carrito copia = (Carrito) super.clone();
-        // Copiar los atributos específicos de Carrito
-        copia.color = this.color;
-        copia.marca = this.marca;
-        copia.numeroPuertas = this.numeroPuertas;
-        return copia;
+        return (Carrito) super.clone();
     }
 
 }

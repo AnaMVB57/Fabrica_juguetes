@@ -61,15 +61,10 @@ public class Peluche implements Juguete, Cloneable {
                 " | Color: " + getColor();
     }
 
-    // En la clase Peluche
+    // Método para clonar los atributos de Peluche
     @Override
     public Peluche clone() throws CloneNotSupportedException {
-        Peluche copia = (Peluche) super.clone();
-        // Copiar los atributos específicos de Peluche
-        copia.materialExterior = this.materialExterior;
-        copia.relleno = this.relleno;
-        copia.color = this.color;
-        return copia;
+        return (Peluche) super.clone();
     }
 
 }

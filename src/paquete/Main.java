@@ -1,6 +1,7 @@
 package paquete;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,19 +15,20 @@ import static paquete.Metodos.MostrarJuguetes.mostrarJuguetes;
 
 public class Main {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) {
 
+        boolean continua;
         List<Juguete> juguetes = new ArrayList<Juguete>();
-
-        juguetes.add(new Peluche(juguetes.size() + 1,"Felpa", "Algodón", "fucsia"));
-        juguetes.add(new Carrito(juguetes.size() + 1,"Rojo", "MarcaX", 4));
-        juguetes.add(new Peluche(juguetes.size() + 1,"Fieltro", "arena", "amarillo"));
-        juguetes.add(new Carrito(juguetes.size() + 1,"Café", "Jeep", 5));
+        int opcion = 0;
         Scanner leer = new Scanner(System.in);
-        int opcion;
+
+        //Datos quemados
+        juguetes.add(new Peluche(juguetes.size() + 1, "Felpa", "Algodón", "fucsia"));
+        juguetes.add(new Carrito(juguetes.size() + 1, "Rojo", "Corvette", 4));
 
         //Ciclo que mantiene el menú funcionando hasta que la opción 4 sea seleccionada
         do {
+
             //Menú que muestra al usuario seleccionar las opciones disponibles
             System.out.println("______________________________________________________________________");
             System.out.println("                        ¡Bienvenido a PCJ S.A.!                       ");
@@ -37,11 +39,23 @@ public class Main {
             System.out.println("4: Clonar juguete");
             System.out.println("5: Eliminar juguete");
             System.out.println("6: Salir");
-            opcion = leer.nextInt();
+
+            //Validacion de datos
+            do {
+                try {
+                    continua = false;
+                    opcion = leer.nextInt();
+                } catch (InputMismatchException ex) {
+                    System.out.println("*** Ingrese un número, por favor. ***");
+                    leer.next();
+                    continua = true;
+                }
+            } while (continua);
+
 
             switch (opcion) {
 
-                case 1:
+                case 1:     //Creación de un peluche
                     System.out.println("Material exterior del peluche: ");
                     String materialExterior = leer.next();
                     System.out.println("Relleno del peluche: ");
@@ -52,14 +66,26 @@ public class Main {
                     System.out.println("                 - Peluche añadido a la lista -                      ");
                     break;
 
-                case 2:
+                case 2:     //Creación de un carrito
                     System.out.println("Color: ");
                     String colorCarrito = leer.next();
                     System.out.println("Marca: ");
                     String marca = leer.next();
-                    System.out.println("Número de puertas: ");
-                    int numPuertas = leer.nextInt();
-                    juguetes.add(new Carrito(juguetes.size() + 1, colorCarrito, marca, numPuertas));
+
+                    //Validacion de datos
+                    do {
+                        try {
+                            continua = false;
+                            System.out.println("Número de puertas: ");
+                            int numPuertas = leer.nextInt();
+                            juguetes.add(new Carrito(juguetes.size() + 1, colorCarrito, marca, numPuertas));
+                        } catch (InputMismatchException ex) {
+                            System.out.println("*** Ingrese un número, por favor. ***");
+                            leer.next();
+                            continua = true;
+                        }
+                    } while (continua);
+
                     System.out.println("                 - Carrito añadido a la lista -                      ");
                     break;
 
@@ -71,25 +97,45 @@ public class Main {
                 case 4:
                     //El usuario indica qué juguete quiere clonar, cuántas veces y los añade a la lista
 
-                    System.out.println("Ingrese el id del juguete que desea clonar: ");
-                    int idJugueteClonar = leer.nextInt();
-                    System.out.println("¿Cuántas copias desea crear? ");
-                    int numVeces = leer.nextInt();
-
-                    //Ciclo que ejecuta la función clonarJuguetes las veces que indique el usuario
-                    for (int i=1;i<numVeces;i++){
-                        clonarJuguetes(idJugueteClonar, juguetes);   }
-                    System.out.println("            - Juguete(s) clonados y añadidos a la lista -             ");
+                    //Validacion de datos
+                    do {
+                        try {
+                            continua = false;
+                            System.out.println("Ingrese el id del juguete que desea clonar: ");
+                            int idJugueteClonar = leer.nextInt();
+                            System.out.println("¿Cuántas copias desea crear? ");
+                            int numVeces = leer.nextInt();
+                            //Ciclo que ejecuta la función clonarJuguetes las veces que indique el usuario
+                            for (int i=1;i<numVeces;i++) {
+                                clonarJuguetes(idJugueteClonar, juguetes);
+                            }
+                        } catch (InputMismatchException | CloneNotSupportedException ex) {
+                            System.out.println("*** Ingrese un número, por favor. ***");
+                            leer.next();
+                            continua = true;
+                        }
+                    } while (continua);
+                    System.out.println("            - Juguetes clonados y añadidos a la lista -             ");
                     mostrarJuguetes(juguetes);
                     break;
 
                 case 5:
                     //Elimina el juguete indicado por el usuario y muestra el registro de juguetes actualizado
 
-                    System.out.println("Ingrese el id del juguete que desea eliminar: ");
-                    int jugueteBorrar = leer.nextInt();
-                    eliminarJuguetes(jugueteBorrar, juguetes);
-                    System.out.println("                  - Juguete eliminado de la lista -                   ");
+                    //Validacion de datos
+                    do {
+                        try {
+                            continua = false;
+                            System.out.println("Ingrese el id del juguete que desea eliminar: ");
+                            int jugueteBorrar = leer.nextInt();
+                            eliminarJuguetes(jugueteBorrar, juguetes);
+                        } catch (InputMismatchException ex) {
+                            System.out.println("*** Ingrese un número, por favor. ***");
+                            leer.next();
+                            continua = true;
+                        }
+                    } while (continua);
+                    System.out.println("                  - Juguete(s) eliminado(s) de la lista -                   ");
                     mostrarJuguetes(juguetes);
                     break;
 
@@ -99,6 +145,5 @@ public class Main {
                     break;
             }
         } while (opcion != 6);
-
     }
 }
