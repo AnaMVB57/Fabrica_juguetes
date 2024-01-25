@@ -25,8 +25,8 @@ public class Main {
         Scanner leer = new Scanner(System.in);
 
         //Datos quemados
-        juguetes.add(new Peluche(juguetes.size() + 1, "Felpa", "Algodón", "fucsia"));
-        juguetes.add(new Carrito(juguetes.size() + 1, "Rojo", "Corvette", 4));
+        juguetes.add(Peluche.builder().id(1).materialExterior("Felpa").relleno("Algodón").color("fucsia").build());
+        juguetes.add(Carrito.builder().id(juguetes.size() + 1).color("Rojo").marca("Corvette").numeroPuertas( 4).build());
 
         //Ciclo que mantiene el menú funcionando hasta que la opción 4 sea seleccionada
         do {
@@ -65,13 +65,12 @@ public class Main {
                     System.out.println("Color del peluche: ");
                     String colorPeluche = leer.next();
 
-                    Peluche.Builder builderP = new Peluche.Builder();
-                    builderP.id(juguetes.size() + 1)
+                    Peluche peluche = Peluche.builder()
+                            .id(juguetes.size() + 1)
                             .materialExterior(materialExterior)
                             .relleno(relleno)
-                            .color(colorPeluche);
-
-                    Peluche peluche = builderP.build();
+                            .color(colorPeluche)
+                            .build();
                     juguetes.add(peluche);
                     System.out.println("                 - Peluche añadido a la lista -                      ");
                     break;
@@ -89,12 +88,12 @@ public class Main {
                             System.out.println("Número de puertas: ");
                             int numPuertas = leer.nextInt();
 
-                            Carrito.Builder builderC = new Carrito.Builder();
-                            builderC.id(juguetes.size() + 1)
+                            Carrito nuevoCarrito = Carrito.builder()
+                                    .id(juguetes.size() + 1)
                                     .color(colorCarrito)
                                     .marca(marca)
-                                    .numeroPuertas(numPuertas);
-                            Carrito nuevoCarrito = builderC.build();
+                                    .numeroPuertas(numPuertas)
+                                    .build();
                             juguetes.add(nuevoCarrito);
                         } catch (InputMismatchException ex) {
                             System.out.println("*** Ingrese un número, por favor. ***");
@@ -123,9 +122,8 @@ public class Main {
                             System.out.println("¿Cuántas copias desea crear? ");
                             int numVeces = leer.nextInt();
                             //Ciclo que ejecuta la función clonarJuguetes las veces que indique el usuario
-                            for (int i = 1; i < numVeces + 1; i++) {
-                                clonarJuguetes(idJugueteClonar, juguetes);
-                            }
+                            Juguete jugueteAClonar = juguetes.get(idJugueteClonar-1);
+                            clonarJuguetes(numVeces, jugueteAClonar, juguetes);
                         } catch (InputMismatchException | CloneNotSupportedException ex) {
                             System.out.println("*** Ingrese un número, por favor. ***");
                             leer.next();

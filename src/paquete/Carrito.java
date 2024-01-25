@@ -8,40 +8,22 @@ public class Carrito implements Juguete, Cloneable {
     int numeroPuertas;
     int id;
 
-    public Carrito() {
-    }
-
-    //Constructor del objeto Carrito con atributos propios y de la superclase Juguete
-    public Carrito(int id, String color, String marca, int numeroPuertas) {
-        this.id = id;
-        this.color = color;
-        this.marca = marca;
-        this.numeroPuertas = numeroPuertas;
-    }
-
     //Getters y setters de los atributos de Carrito
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public Juguete clonar() throws CloneNotSupportedException {
+        return (Carrito) super.clone();
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public int getNumeroPuertas() {
         return numeroPuertas;
-    }
-
-    public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
     }
 
     public void setId(int id) {this.id = id;}
@@ -63,42 +45,46 @@ public class Carrito implements Juguete, Cloneable {
     // Método para clonar los atributos de Carrito
 //    @Override
 //    public Carrito clone() throws CloneNotSupportedException {
-//        Carrito copia = new Carrito();
-//        copia.color = this.getColor();
-//        copia.marca = this.getMarca();
-//        copia.numeroPuertas = this.getNumeroPuertas();
-//        return copia;
+//        return new Carrito(this);
 //    }
 
-    public Carrito clone() throws CloneNotSupportedException {
-        return (Carrito) super.clone();
+    /*
+    * public Carrito clonarConId(int id) {
+    *   Carrito nuevoCarrito = (Carrito) super.clone();
+    *   nuevoCarrito.setId(id);
+    *   return nuevoCarrito;
+    * }
+    * */
+
+    public static CarritoBuilder builder() {
+        return new CarritoBuilder();
     }
 
 //______________________________________________________________________________________________________________________
-    public static class Builder {
+    public static class CarritoBuilder {
 
         private Carrito carrito;
 
-        public Builder() {
+        private CarritoBuilder() {
             this.carrito = new Carrito();
         }
 
-        public Carrito.Builder id(int id) {
+        public CarritoBuilder id(int id) {
             this.carrito.setId(id);
             return this;
         }
 
-        public Carrito.Builder marca(String marca) {
+        public CarritoBuilder marca(String marca) {
             this.carrito.marca = marca;
             return this;
         }
 
-        public Carrito.Builder numeroPuertas(int numeroPuertas) {
+        public CarritoBuilder numeroPuertas(int numeroPuertas) {
             this.carrito.numeroPuertas = numeroPuertas;
             return this;
         }
 
-        public Carrito.Builder color(String color) {
+        public CarritoBuilder color(String color) {
             this.carrito.color = color;
             return this;
         }
