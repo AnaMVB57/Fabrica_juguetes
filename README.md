@@ -2,7 +2,7 @@
 
 Proyecto realizado en Java utilizando POO
 
-10/01/2024
+- 10/01/2024 -
 
 Hay una fábrica de juguetes que está especializada en producir peluches y carritos.
 Esta fábrica quiere automatizar los procesos de creación y registro de los diferentes juguetes que se producen en el día.
@@ -22,10 +22,25 @@ c. El elemento creado debe ser agregado a la lista.
 Imprimir todos los juguetes que se llevan hasta ahora en la lista, con
 sus respectivos atributos.
 
-17/01/2024
+- 17/01/2024 -
 
 Añadir las siguientes funcionalidades: 
 
 1. Clonar juguete: Se le debe preguntar al usuario por el ID del juguete que quiere clonar y el número de veces. Los clones se agregan a la lista.
 
 2. Eliminar juguete: el usuario debe especificar el ID del juguete que quiere eliminar, para posteriormente ser removido de la lista.
+
+- 25/01/2024 -
+
+Añadir las siguientes funcionalidades:
+
+1. Opción para eliminar juguetes por color de la lista.
+
+2. Opción para mostrar juguetes por separado, es decir, puedo elegir si quiero ver solo los Peluches o solo los Carritos.
+
+- 29/04/2024 - 
+- Experimentación
+
+    * Añadir un enum para los colores seleccionables en el programa
+    * Implementar un nuevo tipo de menú utilizando HashMap
+    * Utilizar el .build() para clonar objetos

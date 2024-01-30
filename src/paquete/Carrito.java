@@ -42,12 +42,6 @@ public class Carrito implements Juguete, Cloneable {
                 " | Número de puertas: " + getNumeroPuertas();
     }
 
-    // Método para clonar los atributos de Carrito
-//    @Override
-//    public Carrito clone() throws CloneNotSupportedException {
-//        return new Carrito(this);
-//    }
-
     /*
     * public Carrito clonarConId(int id) {
     *   Carrito nuevoCarrito = (Carrito) super.clone();

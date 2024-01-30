@@ -17,24 +17,12 @@ public class Peluche implements Juguete, Cloneable {
         return materialExterior;
     }
 
-    public void setMaterialExterior(String materialExterior) {
-        this.materialExterior = materialExterior;
-    }
-
     public String getRelleno() {
         return relleno;
     }
 
-    public void setRelleno(String relleno) {
-        this.relleno = relleno;
-    }
-
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public void setId(int id) {this.id = id;}
@@ -61,7 +49,6 @@ public class Peluche implements Juguete, Cloneable {
     public static PelucheBuilder builder() {
         return new PelucheBuilder();
     }
-
     //______________________________________________________________________________________________________________________
      public static class PelucheBuilder {
 

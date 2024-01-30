@@ -7,6 +7,8 @@ public class EliminarJuguete {
     /*
     Eliminar juguete: el usuario debe especificar el ID del juguete que quiere eliminar,
     para posteriormente ser removido de la lista.
+
+
      */
 
     //Método que recibe como parámetros el id del Juguete y la lista de juguetes
@@ -14,6 +16,12 @@ public class EliminarJuguete {
 
         //Método que elimina el juguete que coincida con la id ingresada por el usuario
         lista.removeIf(jugueteBuscado -> jugueteBuscado.getId() == idJuguete);
+    }
+
+    public static void eliminarPorColor(String colorElegido, List<Juguete> lista){
+
+        lista.removeIf(jugueteBuscado -> jugueteBuscado.getColor().equals(colorElegido));
+
     }
 
 }
