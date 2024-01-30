@@ -1,5 +1,9 @@
-package paquete.Metodos;
+package paquete.metodos;
+
+
+import paquete.Color;
 import paquete.Juguete;
+
 import java.util.List;
 
 public class EliminarJuguete {
@@ -18,7 +22,7 @@ public class EliminarJuguete {
         lista.removeIf(jugueteBuscado -> jugueteBuscado.getId() == idJuguete);
     }
 
-    public static void eliminarPorColor(String colorElegido, List<Juguete> lista){
+    public static void eliminarPorColor(Color colorElegido, List<Juguete> lista){
 
         lista.removeIf(jugueteBuscado -> jugueteBuscado.getColor().equals(colorElegido));
 

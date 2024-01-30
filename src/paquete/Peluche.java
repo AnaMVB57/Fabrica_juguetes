@@ -9,7 +9,7 @@ public class Peluche implements Juguete, Cloneable {
 
     private String materialExterior;
     private String relleno;
-    private String color;
+    private Color color;
     private int id;
 
     //Funciones getters y setters de los atributos de Peluche
@@ -21,7 +21,7 @@ public class Peluche implements Juguete, Cloneable {
         return relleno;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -73,7 +73,7 @@ public class Peluche implements Juguete, Cloneable {
             return this;
         }
 
-        public PelucheBuilder color(String color){
+        public PelucheBuilder color(Color color){
             this.peluche.color = color;
             return this;
         }

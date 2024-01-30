@@ -3,19 +3,19 @@ package paquete;
 public class Carrito implements Juguete, Cloneable {
 
     //Variables
-    private String color;
+    private Color color;
     private String marca;
     int numeroPuertas;
     int id;
 
     //Getters y setters de los atributos de Carrito
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
     @Override
     public Juguete clonar() throws CloneNotSupportedException {
-        return (Carrito) super.clone();
+        return (Carrito) super.clone(); // builder().id(this.id).numeroPuertas(this.relleno).build();
     }
 
     public String getMarca() {
@@ -78,7 +78,7 @@ public class Carrito implements Juguete, Cloneable {
             return this;
         }
 
-        public CarritoBuilder color(String color) {
+        public CarritoBuilder color(Color color) {
             this.carrito.color = color;
             return this;
         }

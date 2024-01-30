@@ -4,7 +4,7 @@ public interface Juguete {
 
     int getId();
 
-    String getColor();
+    Color getColor();
 
     Juguete clonar() throws CloneNotSupportedException;
 

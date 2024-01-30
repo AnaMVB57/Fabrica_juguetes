@@ -1,6 +1,5 @@
-package paquete.Metodos;
+package paquete.metodos;
 
-import paquete.Carrito;
 import paquete.Juguete;
 import paquete.Peluche;
 
