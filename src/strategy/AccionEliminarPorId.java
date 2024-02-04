@@ -31,4 +31,14 @@ public class AccionEliminarPorId implements Accion {
         mostrarJuguetes(juguetes);
         return juguetes;
     }
+
+    @Override
+    public int getOpcion() {
+        return 5;
+    }
+
+    @Override
+    public String getOpcionComoString() {
+        return getOpcion() + ": Eliminar juguete por id";
+    }
 }

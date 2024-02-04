@@ -10,4 +10,14 @@ public class AccionCrear implements Accion {
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         return null;
     }
+
+    @Override
+    public int getOpcion() {
+        return -1;
+    }
+
+    @Override
+    public String getOpcionComoString() {
+        return null;
+    }
 }

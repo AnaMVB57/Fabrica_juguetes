@@ -10,4 +10,14 @@ public class AccionEliminarPorColor implements Accion {
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         return null;
     }
+
+    @Override
+    public int getOpcion() {
+        return 6;
+    }
+
+    @Override
+    public String getOpcionComoString() {
+        return getOpcion() + ": Eliminar juguete por color";
+    }
 }

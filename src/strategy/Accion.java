@@ -9,4 +9,8 @@ public interface Accion {
     Scanner scanner = new Scanner(System.in); //public static final
 
     List<Juguete> ejecutar(List<Juguete> juguetes);
+
+    int getOpcion();
+
+    String getOpcionComoString();
 }
