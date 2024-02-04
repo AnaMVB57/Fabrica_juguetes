@@ -19,14 +19,14 @@ public class MostrarJuguetes {
 
     public static void mostrarJuguetesPorSeparado(int tipoJuguete, List<Juguete> lista) {
         if (tipoJuguete == 1) {
-            System.out.println("________________________PELUCHES_______________________________________");
+            System.out.println("_____________________________PELUCHES_________________________________");
             for (Juguete juguete : lista) {
                 if (juguete instanceof Peluche) {
                     System.out.println(juguete.toString());
                 }
             }
         }else {
-            System.out.println("________________________CARRITOS_______________________________________");
+            System.out.println("_____________________________CARRITOS_________________________________");
             for (Juguete juguete : lista) {
                 if (juguete instanceof Carrito) {
                     System.out.println(juguete.toString());
