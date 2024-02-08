@@ -60,7 +60,11 @@ public class Menu {
                         System.out.println("Muchas gracias, vuelva pronto.");
             }*/
 
+            if (opcion < 8){
                 accionStrategy.get(opcion).ejecutar(juguetes);
+            }else if (opcion == 8){
+                System.out.println("Muchas gracias, vuelva pronto.");
+            }
         } while (opcion != 8);
     }
 }
