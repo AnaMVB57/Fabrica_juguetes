@@ -6,9 +6,6 @@ import paquete.Juguete;
 import java.util.InputMismatchException;
 import java.util.List;
 
-import static paquete.metodos.EliminarJuguete.eliminarPorColor;
-import static paquete.metodos.MostrarJuguetes.mostrarJuguetes;
-
 public class AccionEliminarPorColor implements Accion {
 
     @Override
@@ -21,15 +18,15 @@ public class AccionEliminarPorColor implements Accion {
                 System.out.println("Ingrese el color del juguete que desea eliminar: ");
                 Color.mostrarColores();
                 int colorABorrar = scanner.nextInt();
-                eliminarPorColor(Color.colorElegido(colorABorrar), juguetes);   //Llama el método que elige el color y
-            } catch (InputMismatchException ex) {                   //lo utiliza como parámetro para la función de eliminar
+                juguetes.removeIf(jugueteBuscado -> jugueteBuscado.getColor().equals(Color.colorElegido(colorABorrar)));
+            } catch (InputMismatchException ex) {
                 System.out.println("*** Ingrese un número, por favor. ***");
                 scanner.next();
                 continua = true;
             }
         } while (continua);
         System.out.println("                  - Juguete(s) eliminado(s) de la lista -                   ");
-        mostrarJuguetes(juguetes);
+        AccionMostrarLista.mostrarJuguetes(juguetes);
 
         return juguetes;
     }
@@ -41,6 +38,6 @@ public class AccionEliminarPorColor implements Accion {
 
     @Override
     public String getOpcionComoString() {
-        return getOpcion() + ": Eliminar juguete por color";
+        return getOpcion() + ": Eliminar juguetes por color";
     }
 }

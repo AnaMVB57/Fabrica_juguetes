@@ -38,7 +38,6 @@ public class CreadorPeluche implements Creador {
                 continua = true;
             }
         } while (continua);
-
         System.out.println("                 - Peluche añadido a la lista -                      ");
 
         return peluche;

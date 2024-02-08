@@ -1,9 +1,9 @@
 package factory;
 
+import paquete.Carrito;
 import paquete.Color;
 import paquete.Juguete;
 import paquete.Menu;
-import paquete.Carrito;
 
 import java.util.InputMismatchException;
 
@@ -11,10 +11,10 @@ public class CreadorCarrito implements Creador {
 
     @Override
     public Juguete crear() {
+
+        //juguetes.add(new CreadorCarrito().crear());
         boolean continua;
         Carrito carrito = null;
-        //Creación de un carrito con Builder
-        //juguetes.add(new CreadorCarrito().crear());
         System.out.println("Marca: ");
         String marca = scanner.next();
         //Validacion de datos
@@ -39,7 +39,9 @@ public class CreadorCarrito implements Creador {
                 continua = true;
             }
         } while (continua);
+
         System.out.println("                 - Carrito añadido a la lista -                      ");
+
         return carrito;
     }
 }

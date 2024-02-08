@@ -12,6 +12,9 @@ public class AccionStrategyHandler {
     //4 -> ...
 
     private final List<Accion> acciones = List.of(
+            new AccionCrearPeluche(),
+            new AccionCrearCarrito(),
+            new AccionMostrarLista(),
             new AccionClonar(),
             new AccionEliminarPorId(),
             new AccionEliminarPorColor(),

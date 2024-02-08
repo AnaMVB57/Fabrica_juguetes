@@ -32,9 +32,6 @@ public class Menu {
             System.out.println("______________________________________________________________________");
             System.out.println("                        ¡Bienvenido a PCJ S.A.!                       ");
             System.out.println("Seleccione una de las siguientes opciones:");
-            System.out.println("1: Crear peluche");
-            System.out.println("2: Crear carrito");
-            System.out.println("3: Mostrar registro de juguetes");
             accionStrategyHandler.imprimirMenu();
             System.out.println("8: Salir");
 
@@ -62,7 +59,8 @@ public class Menu {
                 case 8 ->    //Mensaje de despedida
                         System.out.println("Muchas gracias, vuelva pronto.");
             }*/
-            accionStrategy.get(opcion).ejecutar(juguetes);
+
+                accionStrategy.get(opcion).ejecutar(juguetes);
         } while (opcion != 8);
     }
 }

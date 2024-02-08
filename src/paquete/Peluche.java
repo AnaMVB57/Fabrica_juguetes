@@ -80,7 +80,7 @@ public class Peluche implements Juguete, Cloneable {
 
         public Peluche build(){
             return this.peluche;
-        }
+        } //Retorna el objeto
 
     }
 

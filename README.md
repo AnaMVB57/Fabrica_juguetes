@@ -41,6 +41,12 @@ Añadir las siguientes funcionalidades:
 - 29/04/2024 - 
 - Experimentación
 
-    * Añadir un enum para los colores seleccionables en el programa
-    * Implementar un nuevo tipo de menú utilizando HashMap
-    * Utilizar el .build() para clonar objetos
+  1. [x] Añadir un enum para los colores seleccionables en el programa
+  2. [x] Implementar un nuevo tipo de menú utilizando HashMap
+
+**Conceptos utilizados**
+
+- Factory: Creación de objetos.
+- Strategy: Distribución de responsabilidades del programa en diferentes clases.
+- Builder: Posibilidad de crear objetos con un constructor (builder) flexible y también reduce el margen de error de la creación de estos.
+           En el programa se hace uso de un builder mutable (), aunque también podría funcionar con uno inmutable ().

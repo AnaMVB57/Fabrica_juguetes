@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
-import static paquete.metodos.MostrarJuguetes.mostrarJuguetes;
-
 public class AccionClonar implements Accion {
 
     @Override
@@ -32,7 +30,7 @@ public class AccionClonar implements Accion {
             }
         } while (continua);
         System.out.println("            - Juguetes clonados y añadidos a la lista -             ");
-        mostrarJuguetes(juguetes);
+        AccionMostrarLista.mostrarJuguetes(juguetes);
         return juguetes;
     }
 
