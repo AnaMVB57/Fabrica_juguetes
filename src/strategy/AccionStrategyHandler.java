@@ -1,5 +1,7 @@
 package strategy;
 
+import paquete.Peluche;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,13 +14,13 @@ public class AccionStrategyHandler {
     //4 -> ...
 
     private final List<Accion> acciones = List.of(
-            new AccionCrearPeluche(),
-            new AccionCrearCarrito(),
-            new AccionMostrarLista(),
-            new AccionClonar(),
-            new AccionEliminarPorId(),
-            new AccionEliminarPorColor(),
-            new AccionMostrarPorTipo()
+            new AccionCrearPeluche().getInstance(),
+            new AccionCrearCarrito().getInstance(),
+            new AccionMostrarLista().getInstance(),
+            new AccionClonar().getInstance(),
+            new AccionEliminarPorId().getInstance(),
+            new AccionEliminarPorColor().getInstance(),
+            new AccionMostrarPorTipo().getInstance()
     );
 
     private final Map<Integer, Accion> mapeo;

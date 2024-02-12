@@ -7,12 +7,24 @@ import java.util.List;
 
 public class AccionCrearCarrito implements Accion {
 
+    private static AccionCrearCarrito instanciaAccion;
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
 
         juguetes.add(new CreadorCarrito().crear());
 
         return juguetes;
+    }
+
+
+    @Override
+    public Accion getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new AccionCrearCarrito();
+        }else{
+            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
+        }
+        return instanciaAccion;
     }
 
     @Override

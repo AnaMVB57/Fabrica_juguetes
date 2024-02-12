@@ -8,6 +8,8 @@ import java.util.List;
 
 public class AccionClonar implements Accion {
 
+    private static AccionClonar instanciaAccion;
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         //El usuario indica qué juguete quiere clonar, cuántas veces y los añade a la lista
@@ -33,6 +35,15 @@ public class AccionClonar implements Accion {
         AccionMostrarLista.mostrarJuguetes(juguetes);
         return juguetes;
     }
+
+    @Override
+    public Accion getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new AccionClonar();
+        }else {
+            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
+        }
+        return instanciaAccion;    }
 
     public void clonarJuguetes(int numeroDeVeces, Juguete jugueteAClonar, List<Juguete> lista) throws CloneNotSupportedException {
 

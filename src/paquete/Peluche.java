@@ -5,6 +5,8 @@ package paquete;
     Los atributos deberian ser private.
  */
 
+import strategy.AccionCrearPeluche;
+
 public class Peluche implements Juguete, Cloneable {
 
     private String materialExterior;
@@ -49,7 +51,7 @@ public class Peluche implements Juguete, Cloneable {
     public static PelucheBuilder builder() {
         return new PelucheBuilder();
     }
-    //______________________________________________________________________________________________________________________
+    //__________________________________________________________________________________________________________________
      public static class PelucheBuilder {
 
         private Peluche peluche;
@@ -83,5 +85,4 @@ public class Peluche implements Juguete, Cloneable {
         } //Retorna el objeto
 
     }
-
 }

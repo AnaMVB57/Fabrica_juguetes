@@ -6,6 +6,7 @@ import java.util.List;
 
 public class AccionMostrarLista implements Accion{
 
+    private static AccionMostrarLista instanciaAccion;
 
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
@@ -14,6 +15,15 @@ public class AccionMostrarLista implements Accion{
 
         return juguetes;
     }
+
+    @Override
+    public Accion getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new AccionMostrarLista();
+        }else {
+            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
+        }
+        return instanciaAccion;    }
 
     //Función que imprime todos los juguetes de la lista, utilizando los respectivos métodos toString de los objetos en la lista
     public static void mostrarJuguetes(List<Juguete> juguetes) {

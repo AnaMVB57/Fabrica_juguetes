@@ -47,19 +47,6 @@ public class Menu {
                 }
             } while (continua);
 
-            /*switch (opcion) {
-                case 1 ->     //Creación de un peluche con Builder
-                        juguetes.add(new CreadorPeluche().crear());
-                case 2 -> juguetes.add(new CreadorCarrito().crear());
-                case 3 -> mostrarJuguetes(juguetes);
-                case 4 -> new AccionClonar().ejecutar(juguetes);
-                case 5 -> new AccionEliminarPorId().ejecutar(juguetes);
-                case 6 -> new AccionEliminarPorColor().ejecutar(juguetes);
-                case 7 -> new AccionMostrarPorTipo().ejecutar(juguetes);
-                case 8 ->    //Mensaje de despedida
-                        System.out.println("Muchas gracias, vuelva pronto.");
-            }*/
-
             if (opcion < 8){
                 accionStrategy.get(opcion).ejecutar(juguetes);
             }else if (opcion == 8){

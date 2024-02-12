@@ -8,6 +8,8 @@ import java.util.List;
 
 public class AccionEliminarPorId implements Accion {
 
+    private static AccionEliminarPorId instanciaAccion;
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         //Elimina el juguete indicado por el usuario y muestra el registro de juguetes actualizado
@@ -32,6 +34,15 @@ public class AccionEliminarPorId implements Accion {
         AccionMostrarLista.mostrarJuguetes(juguetes);
         return juguetes;
     }
+
+    @Override
+    public Accion getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new AccionEliminarPorId();
+        }else {
+            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
+        }
+        return instanciaAccion;    }
 
     @Override
     public int getOpcion() {

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class AccionEliminarPorColor implements Accion {
 
+    private static AccionEliminarPorColor instanciaAccion;
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         boolean continua;
@@ -30,6 +31,15 @@ public class AccionEliminarPorColor implements Accion {
 
         return juguetes;
     }
+
+    @Override
+    public Accion getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new AccionEliminarPorColor();
+        }else {
+            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
+        }
+        return instanciaAccion;    }
 
     @Override
     public int getOpcion() {
