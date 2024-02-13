@@ -9,6 +9,9 @@ import java.util.List;
 public class AccionEliminarPorColor implements Accion {
 
     private static AccionEliminarPorColor instanciaAccion;
+
+    private AccionEliminarPorColor() {}
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         boolean continua;
@@ -32,8 +35,7 @@ public class AccionEliminarPorColor implements Accion {
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionEliminarPorColor();
         }else {

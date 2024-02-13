@@ -7,7 +7,9 @@ import java.util.List;
 
 public class AccionCrearPeluche implements Accion {
 
-    private static AccionCrearPeluche instanciaAccion;
+    private static AccionCrearPeluche instanciaAccion; //inicialmente está en null
+
+    private AccionCrearPeluche () {}
 //    private static int contadorInstancia=0;
 //
 //    private void instanciaAccionCrearPeluche(int contadorInstancia) {
@@ -25,13 +27,12 @@ public class AccionCrearPeluche implements Accion {
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
+        //Lazy loading vs Eager Loading
         if (instanciaAccion == null) {
             instanciaAccion = new AccionCrearPeluche();
-        } else {
-            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
         }
+
         return instanciaAccion;
     }
 

@@ -10,6 +10,8 @@ public class AccionEliminarPorId implements Accion {
 
     private static AccionEliminarPorId instanciaAccion;
 
+    private AccionEliminarPorId() {}
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         //Elimina el juguete indicado por el usuario y muestra el registro de juguetes actualizado
@@ -35,8 +37,7 @@ public class AccionEliminarPorId implements Accion {
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionEliminarPorId();
         }else {

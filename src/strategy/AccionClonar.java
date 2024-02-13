@@ -10,6 +10,8 @@ public class AccionClonar implements Accion {
 
     private static AccionClonar instanciaAccion;
 
+    private AccionClonar() {}
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
         //El usuario indica qué juguete quiere clonar, cuántas veces y los añade a la lista
@@ -36,8 +38,7 @@ public class AccionClonar implements Accion {
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionClonar();
         }else {

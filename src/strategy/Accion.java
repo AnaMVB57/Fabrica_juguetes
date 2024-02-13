@@ -10,8 +10,6 @@ public interface Accion {
 
     List<Juguete> ejecutar(List<Juguete> juguetes);
 
-    Accion getInstance();   //Singleton
-
     int getOpcion();
 
     String getOpcionComoString();
