@@ -10,6 +10,8 @@ public class AccionMostrarPorTipo implements Accion {
 
     private static AccionMostrarPorTipo instanciaAccion;
 
+    private AccionMostrarPorTipo() {}
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
 
@@ -35,8 +37,7 @@ public class AccionMostrarPorTipo implements Accion {
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionMostrarPorTipo();
         }else {

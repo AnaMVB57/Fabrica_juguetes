@@ -8,6 +8,9 @@ import java.util.List;
 public class AccionCrearCarrito implements Accion {
 
     private static AccionCrearCarrito instanciaAccion;
+
+    private AccionCrearCarrito() {}
+
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
 
@@ -16,9 +19,7 @@ public class AccionCrearCarrito implements Accion {
         return juguetes;
     }
 
-
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionCrearCarrito();
         }else{

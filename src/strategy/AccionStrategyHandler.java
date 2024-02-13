@@ -1,26 +1,28 @@
 package strategy;
 
-import paquete.Peluche;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AccionStrategyHandler {
+    // static pertenece a la clase
+    // sin static pertenece al objeto
 
-    //1 -> AccionCrear
-    //2 -> AccionCrear
-    //3 -> AccionMostrar
-    //4 -> ...
+    //Strategy (sustituir un switch)
+    //Builder (para construir de forma flexible)
+    //Factory (para crear objetos)
+    //Singleton (tener clases que manejan una única instancia)
+    //Prototype (Generar clones)
+    //Proxy (Composición)
 
     private final List<Accion> acciones = List.of(
-            new AccionCrearPeluche().getInstance(),
-            new AccionCrearCarrito().getInstance(),
-            new AccionMostrarLista().getInstance(),
-            new AccionClonar().getInstance(),
-            new AccionEliminarPorId().getInstance(),
-            new AccionEliminarPorColor().getInstance(),
-            new AccionMostrarPorTipo().getInstance()
+            AccionCrearPeluche.getInstance(),
+            AccionCrearCarrito.getInstance(),
+            AccionMostrarLista.getInstance(),
+            AccionClonar.getInstance(),
+            AccionEliminarPorId.getInstance(),
+            AccionEliminarPorColor.getInstance(),
+            AccionMostrarPorTipo.getInstance()
     );
 
     private final Map<Integer, Accion> mapeo;

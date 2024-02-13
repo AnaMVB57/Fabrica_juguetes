@@ -4,9 +4,11 @@ import paquete.Juguete;
 
 import java.util.List;
 
-public class AccionMostrarLista implements Accion{
+public class AccionMostrarLista implements Accion {
 
     private static AccionMostrarLista instanciaAccion;
+
+    private AccionMostrarLista() {}
 
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
@@ -16,8 +18,7 @@ public class AccionMostrarLista implements Accion{
         return juguetes;
     }
 
-    @Override
-    public Accion getInstance() {
+    public static Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionMostrarLista();
         }else {

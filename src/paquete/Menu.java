@@ -47,9 +47,9 @@ public class Menu {
                 }
             } while (continua);
 
-            if (opcion < 8){
+            if(opcion < 8){
                 accionStrategy.get(opcion).ejecutar(juguetes);
-            }else if (opcion == 8){
+            } else if (opcion == 8){
                 System.out.println("Muchas gracias, vuelva pronto.");
             }
         } while (opcion != 8);
