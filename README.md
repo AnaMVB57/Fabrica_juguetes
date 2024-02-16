@@ -50,3 +50,4 @@ Añadir las siguientes funcionalidades:
 - Strategy: Distribución de responsabilidades del programa en diferentes clases.
 - Builder: Posibilidad de crear objetos con un constructor (builder) flexible y también reduce el margen de error de la creación de estos.
            En el programa se hace uso de un builder mutable (), aunque también podría funcionar con uno inmutable().
+- Singleton: Garantiza que sólo exista una instancia de cierta clase en el programa.
