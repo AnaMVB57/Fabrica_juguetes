@@ -1,5 +1,6 @@
 package strategy;
 
+import metodos.Input;
 import paquete.Juguete;
 
 import java.util.ArrayList;
@@ -11,26 +12,13 @@ public class AccionClonar implements Accion {
     private static AccionClonar instanciaAccion;
 
     @Override
-    public List<Juguete> ejecutar(List<Juguete> juguetes) {
+    public List<Juguete> ejecutar(List<Juguete> juguetes) throws CloneNotSupportedException {
         //El usuario indica qué juguete quiere clonar, cuántas veces y los añade a la lista
-        //Validacion de datos
-        boolean continua;
-        do {
-            try {
-                continua = false;
-                System.out.println("Ingrese el id del juguete que desea clonar: ");
-                int idJugueteClonar = scanner.nextInt();
-                System.out.println("¿Cuántas copias desea crear? ");
-                int numVeces = scanner.nextInt();
-                //Ciclo que ejecuta la función clonarJuguetes las veces que indique el usuario
-                Juguete jugueteAClonar = juguetes.get(idJugueteClonar - 1);
-                clonarJuguetes(numVeces, jugueteAClonar, juguetes);
-            } catch (InputMismatchException | CloneNotSupportedException ex) {
-                System.out.println("*** Ingrese un número, por favor. ***");
-                scanner.next();
-                continua = true;
-            }
-        } while (continua);
+        int idJugueteClonar = Input.leerInt("Ingrese el id del juguete que desea clonar: ");
+        int numVeces = Input.leerInt("¿Cuántas copias desea crear? ");
+        //Ciclo que ejecuta la función clonarJuguetes las veces que indique el usuario
+        Juguete jugueteAClonar = juguetes.get(idJugueteClonar - 1);
+        clonarJuguetes(numVeces, jugueteAClonar, juguetes);
         System.out.println("            - Juguetes clonados y añadidos a la lista -             ");
         AccionMostrarLista.mostrarJuguetes(juguetes);
         return juguetes;
@@ -38,12 +26,11 @@ public class AccionClonar implements Accion {
 
     @Override
     public Accion getInstance() {
-        if (instanciaAccion == null){
+        if (instanciaAccion == null) {
             instanciaAccion = new AccionClonar();
-        }else {
-            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
         }
-        return instanciaAccion;    }
+        return instanciaAccion;
+    }
 
     public void clonarJuguetes(int numeroDeVeces, Juguete jugueteAClonar, List<Juguete> lista) throws CloneNotSupportedException {
 
@@ -53,7 +40,7 @@ public class AccionClonar implements Accion {
         // Iterar sobre la lista original
         //Se crea una copia del juguete dependiendo de la clase que sea
         int idInicial = lista.size() + 1;
-        for(int i = 0; i < numeroDeVeces; i++) {
+        for (int i = 0; i < numeroDeVeces; i++) {
             Juguete copia = jugueteAClonar.clonar();
             copia.setId(idInicial++);
 

@@ -42,14 +42,6 @@ public class Carrito implements Juguete, Cloneable {
                 " | Número de puertas: " + getNumeroPuertas();
     }
 
-    /*
-    * public Carrito clonarConId(int id) {
-    *   Carrito nuevoCarrito = (Carrito) super.clone();
-    *   nuevoCarrito.setId(id);
-    *   return nuevoCarrito;
-    * }
-    * */
-
     public static CarritoBuilder builder() {
         return new CarritoBuilder();
     }
@@ -88,6 +80,4 @@ public class Carrito implements Juguete, Cloneable {
         }
 
     }
-
-
 }

@@ -10,9 +10,7 @@ public class AccionMostrarLista implements Accion{
 
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
-
         AccionMostrarLista.mostrarJuguetes(juguetes);
-
         return juguetes;
     }
 
@@ -20,8 +18,6 @@ public class AccionMostrarLista implements Accion{
     public Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionMostrarLista();
-        }else {
-            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
         }
         return instanciaAccion;    }
 

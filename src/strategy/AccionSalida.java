@@ -1,35 +1,34 @@
 package strategy;
 
-import factory.CreadorPeluche;
 import paquete.Juguete;
 
 import java.util.List;
 
-public class AccionCrearPeluche implements Accion {
+public class AccionSalida implements Accion{
 
-    private static AccionCrearPeluche instanciaAccion;
+    private static AccionSalida instanciaAccion;
 
     @Override
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
-        juguetes.add(new CreadorPeluche().crear());
-        return juguetes;
+        System.out.println("Muchas gracias, vuelva pronto.");
+        return null;
     }
 
     @Override
     public Accion getInstance() {
         if (instanciaAccion == null) {
-            instanciaAccion = new AccionCrearPeluche();
+            instanciaAccion = new AccionSalida();
         }
         return instanciaAccion;
     }
 
     @Override
     public int getOpcion() {
-        return 1;
+        return 8;
     }
 
     @Override
     public String getOpcionComoString() {
-        return getOpcion() + ": Crear peluche";
+        return getOpcion() + ": Salir";
     }
 }

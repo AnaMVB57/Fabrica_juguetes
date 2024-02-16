@@ -1,7 +1,6 @@
 package paquete;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import metodos.Input;
 
 public enum Color {
     ROJO,
@@ -23,15 +22,12 @@ public enum Color {
 
     private int id;
 
-    public static void mostrarColores() {
+    public static Color elegirColor(String message){
         Color[] colores = values();
         for (Color color : colores) {     //Ciclo que recorre e imprime el array de colores
             System.out.println(color.id + ". " + color);
         }
-    }
-
-    public static Color colorElegido(int idColor) {
-        Color[] colores = values();
+        int idColor = Input.leerInt(message);
         for (Color color : colores) {
             if (idColor == color.id) {
                 return color;
@@ -40,6 +36,3 @@ public enum Color {
         return null;
     }
 }
-
-
-

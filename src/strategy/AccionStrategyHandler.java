@@ -20,7 +20,8 @@ public class AccionStrategyHandler {
             new AccionClonar().getInstance(),
             new AccionEliminarPorId().getInstance(),
             new AccionEliminarPorColor().getInstance(),
-            new AccionMostrarPorTipo().getInstance()
+            new AccionMostrarPorTipo().getInstance(),
+            new AccionSalida().getInstance()
     );
 
     private final Map<Integer, Accion> mapeo;

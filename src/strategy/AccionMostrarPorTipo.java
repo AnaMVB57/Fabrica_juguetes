@@ -1,5 +1,6 @@
 package strategy;
 
+import metodos.Input;
 import paquete.Carrito;
 import paquete.Juguete;
 import paquete.Peluche;
@@ -14,8 +15,7 @@ public class AccionMostrarPorTipo implements Accion {
     public List<Juguete> ejecutar(List<Juguete> juguetes) {
 
         System.out.println("Ingrese el tipo de juguete que desea mostrar: ");
-        System.out.println("1. Peluches                       2. Carritos");
-        int tipoJuguete = scanner.nextInt();
+        int tipoJuguete = Input.leerInt("1. Peluches                       2. Carritos");
 
         if (tipoJuguete == 1) {
             System.out.println("________________________PELUCHES______________________________________");
@@ -39,8 +39,6 @@ public class AccionMostrarPorTipo implements Accion {
     public Accion getInstance() {
         if (instanciaAccion == null){
             instanciaAccion = new AccionMostrarPorTipo();
-        }else {
-            throw new IllegalStateException("Ya se ha creado una instancia de esta accion.");
         }
         return instanciaAccion;
     }
