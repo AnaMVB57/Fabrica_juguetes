@@ -14,8 +14,7 @@ public class AccionStrategyHandler {
     //4 -> ...
 
     private final List<Accion> acciones = List.of(
-            new AccionCrearPeluche().getInstance(),
-            new AccionCrearCarrito().getInstance(),
+            new AccionCrear().getInstance(),
             new AccionMostrarLista().getInstance(),
             new AccionClonar().getInstance(),
             new AccionEliminarPorId().getInstance(),

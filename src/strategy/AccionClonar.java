@@ -54,7 +54,7 @@ public class AccionClonar implements Accion {
 
     @Override
     public int getOpcion() {
-        return 4;
+        return 3;
     }
 
     @Override

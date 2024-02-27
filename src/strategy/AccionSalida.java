@@ -24,7 +24,7 @@ public class AccionSalida implements Accion{
 
     @Override
     public int getOpcion() {
-        return 8;
+        return 7;
     }
 
     @Override

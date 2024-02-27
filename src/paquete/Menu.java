@@ -30,8 +30,12 @@ public class Menu {
             System.out.println("|_____________________________________________________________________|");
             accionStrategyHandler.imprimirMenu();
             opcion = Input.leerInt("Seleccione una de las opciones: ");
-            accionStrategy.get(opcion).ejecutar(juguetes);
 
-        } while (opcion != 8);
+            if (opcion < 8) {
+                accionStrategy.get(opcion).ejecutar(juguetes);
+            } else {
+                System.out.println("Ingrese una opción válida.");
+            }
+        } while (opcion != 7);
     }
 }

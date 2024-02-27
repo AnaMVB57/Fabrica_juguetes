@@ -5,8 +5,12 @@ import paquete.Carrito;
 import paquete.Color;
 import paquete.Juguete;
 import paquete.Menu;
+import strategy.Accion;
+import strategy.AccionCrear;
 
 public class CreadorCarrito implements Creador {
+
+    private static CreadorCarrito instanciaAccion;
 
     @Override
     public Juguete crear() {
@@ -20,5 +24,12 @@ public class CreadorCarrito implements Creador {
                 .build();
         System.out.println("                 - Carrito añadido a la lista -                      ");
         return carrito;
+    }
+
+    public static CreadorCarrito getInstance() {
+        if (instanciaAccion == null) {
+            instanciaAccion = new CreadorCarrito();
+        }
+        return instanciaAccion;
     }
 }

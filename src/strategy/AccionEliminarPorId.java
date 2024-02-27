@@ -35,7 +35,7 @@ public class AccionEliminarPorId implements Accion {
 
     @Override
     public int getOpcion() {
-        return 5;
+        return 4;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class AccionEliminarPorColor implements Accion {
 
     @Override
     public int getOpcion() {
-        return 6;
+        return 5;
     }
 
     @Override

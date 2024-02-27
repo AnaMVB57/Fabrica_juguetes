@@ -45,7 +45,7 @@ public class AccionMostrarPorTipo implements Accion {
 
     @Override
     public int getOpcion() {
-        return 7;
+        return 6;
     }
 
     @Override

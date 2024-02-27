@@ -31,9 +31,7 @@ public class AccionMostrarLista implements Accion{
     }
 
     @Override
-    public int getOpcion() {
-        return 3;
-    }
+    public int getOpcion() { return 2; }
 
     @Override
     public String getOpcionComoString() {

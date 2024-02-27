@@ -6,9 +6,9 @@ import paquete.Juguete;
 import paquete.Menu;
 import paquete.Peluche;
 
-import java.util.InputMismatchException;
-
 public class CreadorPeluche implements Creador {
+
+    private static CreadorPeluche instanciaAccion;
 
     @Override
     public Juguete crear() {
@@ -18,9 +18,16 @@ public class CreadorPeluche implements Creador {
                 .id(Menu.contadorId++)
                 .materialExterior(materialExterior)
                 .relleno(relleno)
-                .color(Color.elegirColor("Color del peluche: ")) 
+                .color(Color.elegirColor("Color del peluche: "))
                 .build();
         System.out.println("                 - Peluche añadido a la lista -                      ");
         return peluche;
+    }
+
+    public static CreadorPeluche getInstance() {
+        if (instanciaAccion == null){
+            instanciaAccion = new CreadorPeluche();
+        }
+        return instanciaAccion;
     }
 }

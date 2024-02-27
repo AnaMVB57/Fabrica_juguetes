@@ -12,21 +12,19 @@ public class Input {
 
 //Método que lee números enteros y valida el tipo de dato
     public static Integer leerInt(String message) {
-        boolean continua;
-        //Validacion de datos
+        System.out.println(message);
         int numero = 0;
+        boolean continua = true ;
+        //Validacion de datos
         do {
             try {
-                continua = false;
-                System.out.println(message);
                 numero = scanner.nextInt();
+                continua = false;
             } catch (InputMismatchException ex) {
                 System.out.println("*** Ingrese un número, por favor. ***");
-                scanner.next();
-                continua = true;
             }
+            scanner.nextLine(); //Registra el Enter
         } while (continua);
-        scanner.nextLine(); //Registra el Enter
         return numero;
     }
 }
